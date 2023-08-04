@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    <g fill="none" fill-rule="evenodd" transform="translate(6 6)">
+        <path fill="#1C8AFF" d="M8 0h28v28H8z" opacity=".2"/>
+        <path fill="#8DC4FF" d="M4 4h28v28H4z" opacity=".6"/>
+        <rect width="28" height="28" y="8" fill="#1C8AFF" rx="2"/>
+        <rect width="22" height="12" x="3" y="16" fill="#459FFF" rx="6"/>
+        <text fill="#FFF" font-family="WorkSans-Regular_Bold, Work Sans" font-size="7" font-weight="bold" letter-spacing="-.124">
+            <tspan x="7.01" y="25">BUY</tspan>
+        </text>
+    </g>
+</svg>

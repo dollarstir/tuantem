@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    <g fill="none" fill-rule="evenodd">
+        <path d="M0 0h48v48H0z"/>
+        <g transform="translate(12 4)">
+            <rect width="24" height="40" fill="#2B4059" rx="2"/>
+            <rect width="20" height="30" x="2" y="3" fill="#1C8AFF" rx="1"/>
+            <rect width="4" height="4" x="4" y="5" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="4" y="11" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="10" y="5" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="10" y="11" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="16" y="5" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="16" y="11" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="4" y="17" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="10" y="17" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="4" height="4" x="4" y="23" fill="#FFF" opacity=".3" rx="1"/>
+            <rect width="6" height="3" x="9" y="35" fill="#516276" rx="1.5"/>
+        </g>
+    </g>
+</svg>
