@@ -13529,7 +13529,7 @@ function(e, t) {
 			abbr: "doge",
 			color: "#c3a633"
 		}];
-		const r = $(".tablecrypto"),
+		const r = $(".table"),
 			o = e => {
 				let t = [];
 				return e.forEach(e => {
