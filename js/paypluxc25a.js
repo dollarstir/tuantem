@@ -13499,126 +13499,126 @@ function(e, t) {
 				})
 			}, 250))
 		});
-		let i = [{
-			name: "Bitcoin",
-			id: 2,
-			abbr: "BTC",
-			color: "#f7931a",
-			actions: {
-				buy: "https://app.payplux.com/dashboard/buy-and-sell/buy",
-				sell: "https://app.payplux.com/dashboard/buy-and-sell/sell"
-			}
-		}, {
-			name: "Bitcoin Cash",
-			id: 6,
-			abbr: "BCH",
-			color: "#8dc351"
-		}, {
-			name: "Ethereum",
-			id: 4,
-			abbr: "ETH",
-			color: "#627eea"
-		}, {
-			name: "Litecoin",
-			id: 5,
-			abbr: "LTC",
-			color: "#d3d3d3"
-		}, {
-			name: "Dogecoin",
-			id: 7,
-			abbr: "doge",
-			color: "#c3a633"
-		}];
-		const r = $(".table"),
-			o = e => {
-				let t = [];
-				return e.forEach(e => {
-					t.push(e.price_close)
-				}), t
-			};
-		r && i.forEach(e => {
-			axios.get(`https://api.payplux.com/api/v5/marketdata/chart/${e.id}?with_crypto_rate=true`).then(t => {
-				let {
-					data: n,
-					ecurrency: i
-				} = t.data;
-				n.push({
-					price_close: i.crypto_rate
-				}), n = n.splice(10, n.length);
-				const s = i.crypto_rate.toFixed(2),
-					l = ((e, t) => {
-						const n = e.slice(e.length - 2, e.length)[0].price_close,
-							i = t.crypto_rate - n;
-						return parseFloat(i / n * 100, 2).toLocaleString("en-GB", {
-							style: "decimal",
-							minimumFractionDigits: 2,
-							maximumFractionDigits: 2
-						})
-					})(n, i),
-					u = {};
-				Math.ceil(l) < 0 ? (u.icon = "arrow_downward", u.className = "down") : Math.ceil(l) > 1 ? (u.icon = "arrow_upward", u.className = "up") : (u.icon = "remove", u.className = "none");
-				let c = '<div class="d-flex td steel-text">Coming soon</div>';
-				e.actions && (c = `<div class="d-flex w-100 td">\n                    <button\n                      onClick="window.open('${e.actions.buy}', '_blank')"\n                      class="btn button button-32 font-size-sm-12 font-weight-sm-600 px-3 mr-2 mr-md-3">BUY</button>\n                    <button \n                      onClick="window.open('${e.actions.sell}', '_blank')"\n                      class="btn button button-32 font-size-sm-12 font-weight-sm-600 px-3">SELL</button>\n                  </div>`), r.find("tbody").append(`\n                        <tr>\n                            <td class="product">\n                                <div class="d-flex td">\n                                    <img src="images/currencies/${e.abbr.toLowerCase()}.svg" alt="" class="mr-2 mr-md-2">\n                                    <div class="product-name">\n                                        <div class="d-flex align-items-center">\n                                            <p class="name font-size-sm-16 font-size-md-18">${e.name}</p>\n                                            <p class="abbr">${e.abbr}</p>\n                                        </div>\n                                        <p class="price d-block d-md-none font-size-sm-16">\n                                            <span class="amount">${s}</span>\n                                            <span class="currency">USD</span>\n                                        </p>\n                                    </div>\n                                </div>\n                            </td>\n                        \n                            <td class="price d-none d-md-table-cell">\n                                <div class="d-flex justify-content-end td font-weight-sm-600">\n                                    <span class="amount">${s}</span>\n                                    <span class="currency">USD</span>\n                                </div>\n                            </td>\n                        \n                            <td class="change d-none d-md-table-cell ${u.className}">\n                                <div class="d-flex td">\n                                    <i class="material-icons">${u.icon}</i>\n                                    <span>${l==1/0?"0.00":Math.abs(l)}</span>\n                                </div>\n                            </td>\n                        \n                            <td class="chart d-none d-lg-table-cell">\n                                <div class="d-flex justify-content-center align-items-center" style="height: 84px; width: 84px;">\n                                    <canvas class="currency-graph" height="50" width="80" id="currency-${e.id}"></canvas>\n                                </div>\n                            </td>\n                            <td class="actions">\n                            ${c}\n                            </td>\n                        </tr>\n                    `), a({
-					el: document.querySelector(`#currency-${e.id}`),
-					data: o(n),
-					color: e.color
-				})
-			}).catch(e => {})
-		});
-		const a = e => {
-			let t = [];
-			e.data.forEach(() => {
-				t.push("")
-			});
-			new Chart(e.el, {
-				type: "line",
-				data: {
-					labels: t,
-					datasets: [{
-						label: "",
-						data: e.data,
-						backgroundColor: "transparent",
-						borderColor: e.color,
-						borderWidth: 2,
-						pointRadius: -1
-					}]
-				},
-				options: {
-					responsive: !1,
-					legend: {
-						display: !1
-					},
-					scales: {
-						yAxes: [{
-							gridLines: {
-								display: !1,
-								drawBorder: !1
-							},
-							ticks: {
-								display: !1
-							}
-						}],
-						xAxes: [{
-							gridLines: {
-								display: !1,
-								drawBorder: !1
-							},
-							ticks: {
-								display: !1
-							}
-						}]
-					},
-					layout: {
-						padding: {
-							left: -10,
-							bottom: -10,
-							right: 0,
-							top: 0
-						}
-					}
-				}
-			})
-		}
+		// let i = [{
+		// 	name: "Bitcoin",
+		// 	id: 2,
+		// 	abbr: "BTC",
+		// 	color: "#f7931a",
+		// 	actions: {
+		// 		buy: "https://app.payplux.com/dashboard/buy-and-sell/buy",
+		// 		sell: "https://app.payplux.com/dashboard/buy-and-sell/sell"
+		// 	}
+		// }, {
+		// 	name: "Bitcoin Cash",
+		// 	id: 6,
+		// 	abbr: "BCH",
+		// 	color: "#8dc351"
+		// }, {
+		// 	name: "Ethereum",
+		// 	id: 4,
+		// 	abbr: "ETH",
+		// 	color: "#627eea"
+		// }, {
+		// 	name: "Litecoin",
+		// 	id: 5,
+		// 	abbr: "LTC",
+		// 	color: "#d3d3d3"
+		// }, {
+		// 	name: "Dogecoin",
+		// 	id: 7,
+		// 	abbr: "doge",
+		// 	color: "#c3a633"
+		// }];
+		// const r = $(".table"),
+		// 	o = e => {
+		// 		let t = [];
+		// 		return e.forEach(e => {
+		// 			t.push(e.price_close)
+		// 		}), t
+		// 	};
+		// r && i.forEach(e => {
+		// 	axios.get(`https://api.payplux.com/api/v5/marketdata/chart/${e.id}?with_crypto_rate=true`).then(t => {
+		// 		let {
+		// 			data: n,
+		// 			ecurrency: i
+		// 		} = t.data;
+		// 		n.push({
+		// 			price_close: i.crypto_rate
+		// 		}), n = n.splice(10, n.length);
+		// 		const s = i.crypto_rate.toFixed(2),
+		// 			l = ((e, t) => {
+		// 				const n = e.slice(e.length - 2, e.length)[0].price_close,
+		// 					i = t.crypto_rate - n;
+		// 				return parseFloat(i / n * 100, 2).toLocaleString("en-GB", {
+		// 					style: "decimal",
+		// 					minimumFractionDigits: 2,
+		// 					maximumFractionDigits: 2
+		// 				})
+		// 			})(n, i),
+		// 			u = {};
+		// 		Math.ceil(l) < 0 ? (u.icon = "arrow_downward", u.className = "down") : Math.ceil(l) > 1 ? (u.icon = "arrow_upward", u.className = "up") : (u.icon = "remove", u.className = "none");
+		// 		let c = '<div class="d-flex td steel-text">Coming soon</div>';
+		// 		e.actions && (c = `<div class="d-flex w-100 td">\n                    <button\n                      onClick="window.open('${e.actions.buy}', '_blank')"\n                      class="btn button button-32 font-size-sm-12 font-weight-sm-600 px-3 mr-2 mr-md-3">BUY</button>\n                    <button \n                      onClick="window.open('${e.actions.sell}', '_blank')"\n                      class="btn button button-32 font-size-sm-12 font-weight-sm-600 px-3">SELL</button>\n                  </div>`), r.find("tbody").append(`\n                        <tr>\n                            <td class="product">\n                                <div class="d-flex td">\n                                    <img src="images/currencies/${e.abbr.toLowerCase()}.svg" alt="" class="mr-2 mr-md-2">\n                                    <div class="product-name">\n                                        <div class="d-flex align-items-center">\n                                            <p class="name font-size-sm-16 font-size-md-18">${e.name}</p>\n                                            <p class="abbr">${e.abbr}</p>\n                                        </div>\n                                        <p class="price d-block d-md-none font-size-sm-16">\n                                            <span class="amount">${s}</span>\n                                            <span class="currency">USD</span>\n                                        </p>\n                                    </div>\n                                </div>\n                            </td>\n                        \n                            <td class="price d-none d-md-table-cell">\n                                <div class="d-flex justify-content-end td font-weight-sm-600">\n                                    <span class="amount">${s}</span>\n                                    <span class="currency">USD</span>\n                                </div>\n                            </td>\n                        \n                            <td class="change d-none d-md-table-cell ${u.className}">\n                                <div class="d-flex td">\n                                    <i class="material-icons">${u.icon}</i>\n                                    <span>${l==1/0?"0.00":Math.abs(l)}</span>\n                                </div>\n                            </td>\n                        \n                            <td class="chart d-none d-lg-table-cell">\n                                <div class="d-flex justify-content-center align-items-center" style="height: 84px; width: 84px;">\n                                    <canvas class="currency-graph" height="50" width="80" id="currency-${e.id}"></canvas>\n                                </div>\n                            </td>\n                            <td class="actions">\n                            ${c}\n                            </td>\n                        </tr>\n                    `), a({
+		// 			el: document.querySelector(`#currency-${e.id}`),
+		// 			data: o(n),
+		// 			color: e.color
+		// 		})
+		// 	}).catch(e => {})
+		// });
+		// const a = e => {
+		// 	let t = [];
+		// 	e.data.forEach(() => {
+		// 		t.push("")
+		// 	});
+		// 	new Chart(e.el, {
+		// 		type: "line",
+		// 		data: {
+		// 			labels: t,
+		// 			datasets: [{
+		// 				label: "",
+		// 				data: e.data,
+		// 				backgroundColor: "transparent",
+		// 				borderColor: e.color,
+		// 				borderWidth: 2,
+		// 				pointRadius: -1
+		// 			}]
+		// 		},
+		// 		options: {
+		// 			responsive: !1,
+		// 			legend: {
+		// 				display: !1
+		// 			},
+		// 			scales: {
+		// 				yAxes: [{
+		// 					gridLines: {
+		// 						display: !1,
+		// 						drawBorder: !1
+		// 					},
+		// 					ticks: {
+		// 						display: !1
+		// 					}
+		// 				}],
+		// 				xAxes: [{
+		// 					gridLines: {
+		// 						display: !1,
+		// 						drawBorder: !1
+		// 					},
+		// 					ticks: {
+		// 						display: !1
+		// 					}
+		// 				}]
+		// 			},
+		// 			layout: {
+		// 				padding: {
+		// 					left: -10,
+		// 					bottom: -10,
+		// 					right: 0,
+		// 					top: 0
+		// 				}
+		// 			}
+		// 		}
+		// 	})
+		// }
 	}),
 	function(e, t, n, i) {
 		"use strict";
